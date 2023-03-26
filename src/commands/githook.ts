@@ -10,7 +10,7 @@ import { COMMANDS } from '../CommandsEnum.js';
 const HOOK_NAME = 'prepare-commit-msg';
 const SYMLINK_URL = `.git/hooks/${HOOK_NAME}`;
 
-export const isHookCalled = process.argv[1].endsWith(`/${SYMLINK_URL}`);
+export const isHookCalled = !process.stdin.isTTY;
 
 const isHookExists = existsSync(SYMLINK_URL);
 
